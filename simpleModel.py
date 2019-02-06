@@ -110,8 +110,9 @@ def calculate_model(z1_hk, z2_hk, z3_hk):
     hk[:, :, 0:40] = z1_hk
     hk[:, :, 40:80] = z2_hk
     hk[:, :, 80:120] = z3_hk
-
+    
     lpf = mf.ModflowLpf(ml, hk=hk, layavg=0, layvka=0, sy=0.3, ipakcb=53)
+   
     pcg = mf.ModflowPcg(ml, rclose=1e-1)
     oc = mf.ModflowOc(ml)
 
